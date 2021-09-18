@@ -31,8 +31,9 @@ public class LiveMap {
         MapContainer mapContainer = new MapContainer();
         UIContainer uiContainer = new UIContainer();
 
-        frame.getContentPane().add(mapContainer);
         frame.getContentPane().add(uiContainer);
+        frame.getContentPane().add(mapContainer);
+
     }
 
     public static void main(String args[]) {

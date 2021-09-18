@@ -32,13 +32,13 @@ public class LiveMap {
 
         MapContainer mapContainer = new MapContainer();
         UIContainer uiContainer = new UIContainer();
-        JButton button = new JButton("Submit Request");
+        JButton requestButton = new JButton("Submit Request");
 
         //setting button size
-        Dimension size = button.getPreferredSize();
-        button.setBounds(0, 1000, 100, 30);
+        Dimension size = requestButton.getPreferredSize();
+        requestButton.setBounds(0, 1000, 100, 30);
         //setting button action
-        button.addActionListener(new ActionListener() {
+        requestButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 RequestContainer.openRequest();
@@ -47,7 +47,7 @@ public class LiveMap {
         );
 
 
-        frame.add(button);
+        frame.add(requestButton);
         frame.getContentPane().add(uiContainer);
         frame.getContentPane().add(mapContainer);
 

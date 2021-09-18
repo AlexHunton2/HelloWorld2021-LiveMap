@@ -51,11 +51,11 @@ public class LizTestLiveMap {
         button.setBounds(0, 0, 100, 30);
         //setting button action
         button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                RequestContainer.openRequest();
-            }
-        }
+                                     @Override
+                                     public void actionPerformed(ActionEvent e) {
+                                         RequestContainer.openRequest();
+                                     }
+                                 }
         );
 
         //puting items into panels
@@ -76,3 +76,4 @@ public class LizTestLiveMap {
 
     }
 }
+

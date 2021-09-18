@@ -32,7 +32,7 @@ public class RequestContainer  extends JFrame {
         //set grid layout
         requestFrame.setLayout(new GridLayout(7, 1));
     //Event type selection bar build-up
-        String[] choices = {TYPE_MESSAGE, "Food", "Career", "Party", "Club"};
+        String[] choices = {TYPE_MESSAGE, "Career", "Party", "Club"};
         JComboBox<String> eventTypeIn = new JComboBox<String>(choices);
         eventTypeIn.setVisible(true);
     //Input bars build-up

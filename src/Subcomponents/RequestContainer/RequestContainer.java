@@ -11,6 +11,12 @@ public class RequestContainer  extends JFrame {
         JLabel requestText = new JLabel("Request!");
         this.add(requestText);
     }
+    private static final String NAME_MESSAGE = "Please enter the name of event";
+    private static final String MESSAGE_MESSAGE = "Please enter your event info";
+    private static final String LOCATION_MESSAGE = "Please enter the location of event";
+    private static final String START_DATE_MESSAGE = "Please enter the date when the event starts";
+    private static final String END_DATE_MESSAGE = "Please enter the date when the event ends";
+    private static final String TYPE_MESSAGE = "Please choose you event type";
     public static void openRequest() {
     //Window build-up
         //basic appearance
@@ -22,45 +28,80 @@ public class RequestContainer  extends JFrame {
         requestFrame.pack();
         requestFrame.setVisible(true);
         //set size
-        requestFrame.setSize(600,400);
+        requestFrame.setSize(600,800);
         //set grid layout
-        requestFrame.setLayout(new GridLayout(1, 1));
+        requestFrame.setLayout(new GridLayout(7, 1));
     //Event type selection bar build-up
-        JPanel eventTypeIn = new JPanel();
-        String[] choices = {"Please choose you event type", "Food", "Career", "Party", "Club"};
-        JComboBox<String> selectoinBar = new JComboBox<String>(choices);
-        selectoinBar.setVisible(true);
-        eventTypeIn.add(selectoinBar);
+        String[] choices = {TYPE_MESSAGE, "Food", "Career", "Party", "Club"};
+        JComboBox<String> eventTypeIn = new JComboBox<String>(choices);
+        eventTypeIn.setVisible(true);
     //Input bars build-up
-        JTextField nameIn = new JTextField("Please enter the name of event");
-        JTextField messageIn = new JTextField("Please enter your event info");
-        JTextField locationIn = new JTextField("Please enter your location of event");
-        JTextField startDateIn = new JTextField("Please enter the date when your event starts");
-        JTextField endDateIn = new JTextField("Please enter the date when your event ends");
-    //place labels in sequence
-        requestFrame.add(nameIn);
-        requestFrame.add(eventTypeIn);
-        requestFrame.add(messageIn);
-        requestFrame.add(locationIn);
-        requestFrame.add(startDateIn);
-        requestFrame.add(endDateIn);
+
+        JTextField nameIn = new JTextField(NAME_MESSAGE);
+        JTextField messageIn = new JTextField(MESSAGE_MESSAGE);
+        JTextField locationIn = new JTextField(LOCATION_MESSAGE);
+        JTextField startDateIn = new JTextField(START_DATE_MESSAGE);
+        JTextField endDateIn = new JTextField(END_DATE_MESSAGE);
+
     //Submit button!
+        JPanel submitPanel = new JPanel();
         JButton submitBut = new JButton("Submit!");
+        submitPanel.add(submitBut);
         //Button function setting
         submitBut.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String name, eventType, message, location, startDate, endDate;
                 name = nameIn.getText();
-                eventType = String.valueOf(selectoinBar.getSelectedItem());
+                eventType = String.valueOf(eventTypeIn.getSelectedItem());
                 message = messageIn.getText();
                 location = locationIn.getText();
                 startDate = startDateIn.getText();
                 endDate = endDateIn.getText();
-                requestFrame.dispose();
+                if(name != NAME_MESSAGE && eventType != TYPE_MESSAGE && message != MESSAGE_MESSAGE
+                    && location != LOCATION_MESSAGE && startDate != START_DATE_MESSAGE
+                    && endDate != END_DATE_MESSAGE) {
+                    requestFrame.dispose();
+                } else {
+                    JFrame.setDefaultLookAndFeelDecorated(true);
+                    //build and set window
+                    JFrame error = new JFrame("Event Submission");
+                    error.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                    //display window
+                    error.pack();
+                    error.setVisible(true);
+                    //set size
+                    error.setSize(350,125);
+                    //set layout
+                    error.setLayout(new GridLayout(2, 1));
+                    //set up massage
+                    JPanel errorMessagePan = new JPanel();
+                    JLabel errorMessage = new JLabel("Please complete the form before submission!");
+                    errorMessagePan.add(errorMessage);
+                    //set up confirm button
+                    JPanel errorConfirmPan = new JPanel();
+                    JButton errorConfirmBut = new JButton("Confirm");
+                    errorConfirmPan.add(errorConfirmBut);
+                    //display
+                    error.add(errorMessagePan);
+                    error.add(errorConfirmPan);
+                    errorConfirmBut.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            error.dispose();
+                        }
+                    });
+                }
             }
         }
         );
-        requestFrame.add(submitBut);
+        //place labels in sequence
+        requestFrame.add(nameIn);
+        requestFrame.add(eventTypeIn);
+        requestFrame.add(messageIn);
+        requestFrame.add(locationIn);
+        requestFrame.add(startDateIn);
+        requestFrame.add(endDateIn);
+        requestFrame.add(submitPanel);
     }
 }

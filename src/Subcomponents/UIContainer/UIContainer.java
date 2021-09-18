@@ -8,4 +8,5 @@ public class UIContainer  extends JPanel {
         JLabel uiText = new JLabel("UI!");
         this.add(uiText);
     }
+
 }

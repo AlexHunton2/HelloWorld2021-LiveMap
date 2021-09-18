@@ -1,4 +1,9 @@
 import javax.swing.*;
+import Subcomponents.MapContainer.MapContainer;
+import Subcomponents.RequestContainer.RequestContainer;
+import Subcomponents.UIContainer.UIContainer;
+
+import java.awt.*;
 
 /**
  *
@@ -15,13 +20,19 @@ public class LiveMap {
         //build and set window
         JFrame frame = new JFrame("LiveMap Window");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        JLabel label = new JLabel("Hi");
-        frame.getContentPane().add(label);
         //display window
         frame.pack();
         frame.setVisible(true);
         //set size
         frame.setSize(WIDTH, HEIGHT);
+        //set grid layout
+        frame.setLayout(new GridLayout(1, 1));
+
+        MapContainer mapContainer = new MapContainer();
+        UIContainer uiContainer = new UIContainer();
+
+        frame.getContentPane().add(mapContainer);
+        frame.getContentPane().add(uiContainer);
     }
 
     public static void main(String args[]) {

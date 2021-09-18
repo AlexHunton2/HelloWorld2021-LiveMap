@@ -4,6 +4,8 @@ import Subcomponents.RequestContainer.RequestContainer;
 import Subcomponents.UIContainer.UIContainer;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  *
@@ -32,6 +34,19 @@ public class LiveMap {
         UIContainer uiContainer = new UIContainer();
         JButton button = new JButton("Submit Request");
 
+        //setting button size
+        Dimension size = button.getPreferredSize();
+        button.setBounds(0, 1000, 100, 30);
+        //setting button action
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                RequestContainer.openRequest();
+            }
+        }
+        );
+
+
         frame.add(button);
         frame.getContentPane().add(uiContainer);
         frame.getContentPane().add(mapContainer);
@@ -40,7 +55,7 @@ public class LiveMap {
 
     public static void main(String args[]) {
 
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
+        SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
                 createWindow();

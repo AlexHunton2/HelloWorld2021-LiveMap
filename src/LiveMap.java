@@ -20,36 +20,48 @@ public class LiveMap {
         //basic appearance
         JFrame.setDefaultLookAndFeelDecorated(true);
         //build and set window
-        JFrame frame = new JFrame("LiveMap Window");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        JFrame mainFrame = new JFrame("Purdue LiveMap");
+        mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //display window
-        frame.pack();
-        frame.setVisible(true);
+        mainFrame.pack();
+        mainFrame.setVisible(true);
         //set size
-        frame.setSize(WIDTH, HEIGHT);
+        mainFrame.setSize(WIDTH, HEIGHT);
         //set grid layout
-        frame.setLayout(new GridLayout(1, 1));
-
+    /*
+        mainFrame.setLayout(new GridLayout(1, 1));
+    */
+        //initializing
         MapContainer mapContainer = new MapContainer();
         UIContainer uiContainer = new UIContainer();
-        JButton requestButton = new JButton("Submit Request");
+        JButton button = new JButton("Submit Request");
 
+        //divide the window into panels
+        JPanel ui = new JPanel();
+        JPanel map = new JPanel();
+        //setting panel borders
+        ui.setSize(320, 720);
+        map.setSize(960, 720);
+        ui.setBackground(Color.LIGHT_GRAY);
+
+        mainFrame.add(ui);
+        mainFrame.add(map);
         //setting button size
-        Dimension size = requestButton.getPreferredSize();
-        requestButton.setBounds(0, 1000, 100, 30);
+        Dimension size = button.getPreferredSize();
+        button.setBounds(0, 0, 100, 30);
         //setting button action
-        requestButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                RequestContainer.openRequest();
-            }
-        }
+        button.addActionListener(new ActionListener() {
+                                     @Override
+                                     public void actionPerformed(ActionEvent e) {
+                                         RequestContainer.openRequest();
+                                     }
+                                 }
         );
 
-
-        frame.add(requestButton);
-        frame.getContentPane().add(uiContainer);
-        frame.getContentPane().add(mapContainer);
+        //puting items into panels
+        ui.add(button);
+        ui.add(uiContainer);
+        map.add(mapContainer);
 
     }
 

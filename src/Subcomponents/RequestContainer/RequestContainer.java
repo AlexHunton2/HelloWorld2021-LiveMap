@@ -16,15 +16,15 @@ public class RequestContainer  extends JFrame {
         //basic appearance
         JFrame.setDefaultLookAndFeelDecorated(true);
         //build and set window
-        JFrame frame = new JFrame("LiveMap Window");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        JFrame requestFrame = new JFrame("Event Submission");
+        requestFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //display window
-        frame.pack();
-        frame.setVisible(true);
+        requestFrame.pack();
+        requestFrame.setVisible(true);
         //set size
-        frame.setSize(600,400);
+        requestFrame.setSize(600,400);
         //set grid layout
-        frame.setLayout(new GridLayout(1, 1));
+        requestFrame.setLayout(new GridLayout(1, 1));
     //Event type selection bar build-up
         JPanel eventTypeIn = new JPanel();
         String[] choices = {"Please choose you event type", "Food", "Career", "Party", "Club"};
@@ -38,12 +38,12 @@ public class RequestContainer  extends JFrame {
         JTextField startDateIn = new JTextField("Please enter the date when your event starts");
         JTextField endDateIn = new JTextField("Please enter the date when your event ends");
     //place labels in sequence
-        frame.add(nameIn);
-        frame.add(eventTypeIn);
-        frame.add(messageIn);
-        frame.add(locationIn);
-        frame.add(startDateIn);
-        frame.add(endDateIn);
+        requestFrame.add(nameIn);
+        requestFrame.add(eventTypeIn);
+        requestFrame.add(messageIn);
+        requestFrame.add(locationIn);
+        requestFrame.add(startDateIn);
+        requestFrame.add(endDateIn);
     //Submit button!
         JButton submitBut = new JButton("Submit!");
         //Button function setting
@@ -57,9 +57,10 @@ public class RequestContainer  extends JFrame {
                 location = locationIn.getText();
                 startDate = startDateIn.getText();
                 endDate = endDateIn.getText();
+                requestFrame.dispose();
             }
         }
         );
-        frame.add(submitBut);
+        requestFrame.add(submitBut);
     }
 }

@@ -32,9 +32,10 @@ public class LiveMap {
         UIContainer uiContainer = new UIContainer();
         JButton button = new JButton("Submit Request");
 
+        frame.add(button);
         frame.getContentPane().add(uiContainer);
         frame.getContentPane().add(mapContainer);
-        frame.add(button);
+
     }
 
     public static void main(String args[]) {

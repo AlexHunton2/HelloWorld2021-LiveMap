@@ -32,9 +32,6 @@ public class LiveMap {
         mainFrame.setLayout(new GridLayout(1, 1));
     */
         //initializing
-
-       // JLabel mapImage1 = new JLabel(new ImageIcon("C:/Users/Yatin/OneDrive/Documents/GitHub/HelloWorld2021-LiveMap/src/Subcomponents/MapContainer/purduemap.jpg"));
-
         MapContainer mapContainer = new MapContainer();
         UIContainer uiContainer = new UIContainer();
         JButton button = new JButton("Submit Request");
@@ -54,18 +51,17 @@ public class LiveMap {
         button.setBounds(0, 0, 100, 30);
         //setting button action
         button.addActionListener(new ActionListener() {
-                                     @Override
-                                     public void actionPerformed(ActionEvent e) {
-                                         RequestContainer.openRequest();
-                                     }
-                                 }
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                RequestContainer.openRequest();
+            }
+        }
         );
 
         //putting items into panels
         ui.add(button);
         ui.add(uiContainer);
         map.add(mapContainer);
-        //map.add(mapImage1);
 
     }
 

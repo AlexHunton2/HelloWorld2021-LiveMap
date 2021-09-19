@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 /**
  *
  *
+ *
  */
 
 public class LiveMap {
@@ -59,10 +60,9 @@ public class LiveMap {
         );
 
         //putting items into panels
-        ui.add(button);
         ui.add(uiContainer);
+        ui.add(button);
         map.add(mapContainer);
-
     }
 
     public static void main(String args[]) {

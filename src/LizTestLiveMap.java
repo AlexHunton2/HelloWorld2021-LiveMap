@@ -43,6 +43,7 @@ public class LizTestLiveMap {
         ui.setSize(320, 720);
         map.setSize(960, 720);
         ui.setBackground(Color.LIGHT_GRAY);
+        ui.setLayout(new BoxLayout(ui, BoxLayout.PAGE_AXIS));
 
         mainFrame.add(ui);
         mainFrame.add(map);
@@ -51,11 +52,11 @@ public class LizTestLiveMap {
         button.setBounds(0, 0, 100, 30);
         //setting button action
         button.addActionListener(new ActionListener() {
-                                     @Override
-                                     public void actionPerformed(ActionEvent e) {
-                                         RequestContainer.openRequest();
-                                     }
-                                 }
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                RequestContainer.openRequest();
+            }
+        }
         );
 
         //puting items into panels

@@ -58,9 +58,9 @@ public class RequestContainer  extends JFrame {
                 location = locationIn.getText();
                 startDate = startDateIn.getText();
                 endDate = endDateIn.getText();
-                if(name != NAME_MESSAGE && eventType != TYPE_MESSAGE && message != MESSAGE_MESSAGE
-                    && location != LOCATION_MESSAGE && startDate != START_DATE_MESSAGE
-                    && endDate != END_DATE_MESSAGE) {
+                if(name.equals(NAME_MESSAGE) && eventType.equals(TYPE_MESSAGE) && message.equals(MESSAGE_MESSAGE)
+                    && location.equals(LOCATION_MESSAGE) && startDate.equals(START_DATE_MESSAGE)
+                    && endDate.equals(END_DATE_MESSAGE)) {
                     requestFrame.dispose();
                 } else {
                     JFrame.setDefaultLookAndFeelDecorated(true);
